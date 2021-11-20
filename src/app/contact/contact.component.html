@@ -1,0 +1,137 @@
+<app-header></app-header>
+<main class="main-content">
+    <div class="container-fluid photos">
+      <div class="row justify-content-center">
+
+        <div class="col-md-6 pt-4"  data-aos="fade-up">
+          <h2 class="text-white mb-4">Contact</h2>
+
+          <div class="row">
+            <div class="col-md-12">
+              <p class="mb-5"></p>
+
+
+              <div class="row">
+                <div class="col-md-12">
+                  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div class="form-group" [ngClass]="{'has-error': form.get('name').invalid && form.get('name').touched}">
+    <input type="text" formControlName="name" class="form-control" id="name" placeholder="Your Name">
+    <span
+        class="form-help-text"
+        *ngIf="form.get('name').invalid && form.get('name').touched"
+      >
+     <span *ngIf="form.get('name')['errors']['required']">This field cannot be empty. </span>
+     <span *ngIf="form.get('name')['errors']['maxlength']">Name should not be longer {{ form.get('name')['errors']['maxlength']['requiredLength'] }} characters.
+      Now {{ form.get('name')['errors']['maxlength']['actualLength'] }}.</span>
+     <span *ngIf="form.get('name')['errors']['minlength']">Name must not be less than {{ form.get('name')['errors']['minlength']['requiredLength'] }} characters.
+      Now {{ form.get('name')['errors']['minlength']['actualLength'] }}. </span>
+     <span *ngIf="form.get('name')['errors']['name']">Please enter a valid email. </span>
+     </span>
+  </div>
+  <div class="form-group" [ngClass]="{'has-error': form.get('email').invalid && form.get('email').touched}">
+    <input type="text" formControlName="email" class="form-control" id="email" placeholder="Your Email" >
+    <span
+        class="form-help-text"
+        *ngIf="form.get('email').invalid && form.get('email').touched"
+      >
+     <span *ngIf="form.get('email')['errors']['required']">This field cannot be empty.</span>
+     <span *ngIf="form.get('email')['errors']['email']">Please enter a valid email. </span>
+     <span *ngIf="form.get('email')['errors']['maxlength']">Name should not be longer {{ form.get('email')['errors']['maxlength']['requiredLength'] }} characters.
+      Now {{ form.get('email')['errors']['maxlength']['actualLength'] }}.</span>
+     <span *ngIf="form.get('email')['errors']['minlength']">Name must not be less than {{ form.get('email')['errors']['minlength']['requiredLength'] }} characters.
+      Now {{ form.get('email')['errors']['minlength']['actualLength'] }}. </span>
+     </span>
+  </div>
+  <div class="form-group" [ngClass]="{'has-error': form.get('phone').invalid && form.get('phone').touched}">
+    <input type="text" formControlName="phone" class="form-control" id="phone" placeholder="Phone">
+    <span
+        class="form-help-text"
+        *ngIf="form.get('phone').invalid && form.get('phone').touched"
+      >
+     <span *ngIf="form.get('phone')['errors']['required']">This field cannot be empty. </span>
+     <span *ngIf="form.get('phone')['errors']['maxlength']">Name should not be longer {{ form.get('phone')['errors']['maxlength']['requiredLength'] }} characters.
+      Now {{ form.get('phone')['errors']['maxlength']['actualLength'] }}.</span>
+     <span *ngIf="form.get('phone')['errors']['minlength']">Name must not be less than {{ form.get('phone')['errors']['minlength']['requiredLength'] }} characters.
+      Now {{ form.get('phone')['errors']['minlength']['actualLength'] }}. </span>
+     </span>
+  </div>
+  <div class="form-group" [ngClass]="{'has-error': form.get('message').invalid && form.get('message').touched}">
+    <textarea name="" id="" cols="30" rows="7" formControlName="message" class="form-control" placeholder="Message" ></textarea>
+    <span
+        class="form-help-text"
+        *ngIf="form.get('message').invalid && form.get('message').touched"
+      >
+     <span *ngIf="form.get('message')['errors']['required']">This field cannot be empty. </span>
+     <span *ngIf="form.get('message')['errors']['maxlength']">Name should not be longer {{ form.get('message')['errors']['maxlength']['requiredLength'] }} characters.
+      Now {{ form.get('message')['errors']['maxlength']['actualLength'] }}.</span>
+     <span *ngIf="form.get('message')['errors']['minlength']">Name must not be less than {{ form.get('message')['errors']['minlength']['requiredLength'] }} characters.
+      Now {{ form.get('message')['errors']['minlength']['actualLength'] }}. </span>
+     </span>
+  </div>
+  <div class="form-group">
+    <input type="submit" value="Send Message" class="btn btn-primary py-3 px-5" [disabled]="form.invalid">
+  </div>
+</form>
+
+
+                  <!-- <form action="#">
+                    <div class="row form-group">
+                      <div class="col-md-6 mb-3 mb-md-0">
+                        <label class="text-white" for="fname">First Name</label>
+                        <input type="text" id="fname" class="form-control" required>
+                      </div>
+                      <div class="col-md-6">
+                        <label class="text-white" for="lname">Last Name</label>
+                        <input type="text" id="lname" class="form-control" required>
+                      </div>
+                    </div>
+
+                    <div class="row form-group">
+
+                      <div class="col-md-12">
+                        <label class="text-white" for="email">Email</label>
+                        <input type="email" id="email" class="form-control" required>
+                      </div>
+                    </div>
+
+                    <div class="row form-group">
+
+                      <div class="col-md-12">
+                        <label class="text-white" for="subject">Subject</label>
+                        <input type="subject" id="subject" class="form-control" required>
+                      </div>
+                    </div>
+
+                    <div class="row form-group mb-5">
+                      <div class="col-md-12">
+                        <label class="text-white" for="message">Message</label>
+                        <textarea name="message" id="message" cols="30" rows="7" class="form-control" placeholder="Write your notes or questions here..."></textarea>
+                      </div>
+                    </div>
+
+                    <div class="row form-group">
+                      <div class="col-md-12">
+                        <input type="submit" value="Send Message" class="btn btn-primary btn-md text-white">
+                      </div>
+                    </div>
+                  </form> -->
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="row justify-content-center">
+        <div class="col-md-12 text-center py-5">
+          <p>
+        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+        Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved <a routerLink = "/" target="_blank" >DigSpace</a>
+        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+      </p>
+        </div>
+      </div>
+    </div>
+  </main>
